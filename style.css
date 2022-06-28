@@ -57,7 +57,7 @@ h1 {
 .popup {
     align-content: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     flex-wrap: wrap;
     display: flex;
     position: fixed;
@@ -72,8 +72,39 @@ h1 {
     display: none;
 }
 
-.popup__img {
-    max-height: 60%;
-    max-width: 60%;
+.popup__close {
+    position: fixed;
+    right: 32px;
+    top: 32px;
+    padding: 0 10px;
+    background: none;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 56px;
+    cursor: pointer;
+}
 
+.popup__img {
+    max-height: 80%;
+    max-width: 80%;
+
+}
+
+.popup__arow {
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    height: 96px;
+    width: 96px;
+    top: 45%;
+    font-size: 96px;
+    opacity: 0.5;
+}
+
+.popup__arow--left {
+    left: 20px;
+}
+
+.popup__arow--right {
+    right: 20px;
 }
