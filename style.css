@@ -54,7 +54,13 @@ h1 {
     object-fit: cover;
 }
 
+.thumbnail img:focus,
+.thumbnail img:focus-visible {
+    border: solid 5px rgb(255, 1, 191);
+}
+
 .popup {
+    animation: fadeIn .3s;
     align-content: center;
     justify-content: center;
     backdrop-filter: blur(10px);
@@ -84,6 +90,10 @@ h1 {
     cursor: pointer;
 }
 
+.popup.fade-out {
+    animation: fadeOut 0.3s both;
+}
+
 .popup__img {
     max-height: 80%;
     max-width: 80%;
@@ -107,4 +117,22 @@ h1 {
 
 .popup__arow--right {
     right: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

@@ -17,20 +17,30 @@ const showPreviousSlider = () => {
 }
 
 const exitSlider = () => {
+    
+    setTimeout(() => {
+        POPUP.classList.remove('fadeOut');
+    }, 300)
     POPUP.classList.add('hidden');
 }
 
-THUMBNAIL.forEach( (e, index) => {
-    
-    e.addEventListener('click', () => {
-        POPUP.classList.remove('hidden');
-        POPUP_IMG.src = e.src;
-        currentIndex = index;
-    })
-})
+THUMBNAIL.forEach( (thumbnail, index) => {
+    const showPopup = (e) => {
+            POPUP.classList.remove('hidden');
+            POPUP_IMG.src = e.target.src;
+            currentIndex = index;
+
+        };
+
+        thumbnail.addEventListener("click", showPopup);
+        thumbnail.addEventListener("keydown", (e) => {
+            if(e.code === "Enter" || e.keyCode === 13 ) {
+                 showPopup(e);
+             }
+         });
+ });
 
 POPUP_CLOSE.addEventListener('click', exitSlider) 
-
 ARROW_LEFT.addEventListener('click', showPreviousSlider);
 ARROW_RIGHT.addEventListener('click', showNextSlider) ;
 
@@ -47,5 +57,9 @@ document.addEventListener("keydown", e => {
 
 POPUP.addEventListener('click', e => {
     e.target === POPUP ? exitSlider(): '';
-    console.log(e.target)
-}) 
+}) ;
+
+
+
+
+
